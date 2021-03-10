@@ -4,6 +4,7 @@ import { business } from "./Business.js"
 
 const contentElement = document.querySelector(".businessList")
 const nyContentElement = document.querySelector(".businessList--newYork")
+const manuContentElement = document.querySelector(".businessList--manufacturing")
 
 export const businessList = () => {
     const businessArray = useBusinesses();
@@ -28,6 +29,22 @@ export const nyBusinessList = () => {
       nyArray.forEach(
           (businessObj) => {
               nyContentElement.innerHTML += business(businessObj)
+          }
+      );
+
+}
+
+export const manufacturingBusinessList = () => {
+    const manufacturingArray = useBusinesses().filter(businessObj => {
+        if (businessObj.companyIndustry === "Manufacturing") {
+          return businessObj
+        }
+        
+      })
+      manuContentElement.innerHTML = "";
+      manufacturingArray.forEach(
+          (businessObj) => {
+              manuContentElement.innerHTML += business(businessObj)
           }
       );
 
