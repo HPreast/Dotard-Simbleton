@@ -1,5 +1,5 @@
-import { useBusinesses, nyBusinesses } from "./BusinessData.js"
-import { business } from "./Business.js"
+import { useBusinesses } from "./BusinessData.js"
+import { business, agentsHTML } from "./Business.js"
 
 
 const contentElement = document.querySelector(".businessList")
@@ -58,7 +58,7 @@ export const agentsList = () => {
     agentContentElement.innerHTML = "";
     agentsArray.forEach(
         (businessObj) => {
-            agentContentElement.innerHTML += business(businessObj)
+            agentContentElement.innerHTML += agentsHTML(businessObj)
         }
     );
 
