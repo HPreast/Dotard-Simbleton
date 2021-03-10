@@ -1,4 +1,4 @@
-import { useBusinesses } from "./BusinessData.js"
+import { useBusinesses, agents } from "./BusinessData.js"
 import { business, agentsHTML } from "./Business.js"
 
 
@@ -52,14 +52,11 @@ export const manufacturingBusinessList = () => {
 }
 
 export const agentsList = () => {
-    const agentsArray = useBusinesses().map(businessObj => {
-        return businessObj.purchasingAgent;
-    })
-    agentContentElement.innerHTML = "";
-    agentsArray.forEach(
-        (businessObj) => {
-            agentContentElement.innerHTML += agentsHTML(businessObj)
-        }
-    );
+ agentContentElement.innerHTML = "<h2>Purchasing Agents</h2><hr>"
+agents.forEach(
+    (agentObj) => {
+        agentContentElement.innerHTML += agentsHTML(agentObj)
+    }
+)
 
 }
