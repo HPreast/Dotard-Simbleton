@@ -12,12 +12,12 @@ export const business = (businessObj) => {
 
 export const agentsHTML = (businessObj) => {
     return `
-    <h3 class="agentName">${businessObj.purchasingAgent}</h3>
+    <h3 class="agentName">${businessObj.name}</h3>
     <div class="agentCompany">
-        <p>${businessObj.companyName}</p>
+        <p>${businessObj.company}</p>
     </div>
     <div class="agentPhone">
-    <p>${businessObj.phoneWork}
+    <p>${businessObj.phone}</p>
     </div>
     `
 }

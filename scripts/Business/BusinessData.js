@@ -122,6 +122,10 @@ const businesses = [
     return false
   })
 
-  // export const agents = businesses.map(businessObj => {
-  //   return businessObj.purchasingAgent;
-  // })
+  export const agents = businesses.map(businessObj => {
+    const agentObj = {};
+    agentObj.name = `${businessObj.purchasingAgent.nameFirst} ${businessObj.purchasingAgent.nameLast}`;
+    agentObj.company = businessObj.companyName;
+    agentObj.phone = businessObj.phoneWork;
+    return agentObj;
+  })
