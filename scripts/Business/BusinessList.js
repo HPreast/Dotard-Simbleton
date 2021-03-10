@@ -60,3 +60,43 @@ agents.forEach(
 )
 
 }
+
+export const searchBar = () => {
+
+
+// Place an article element in your HTML with the class below
+const companySearchResultArticle = document.querySelector(".foundCompanies")
+
+document
+    .querySelector("#companySearch")
+    .addEventListener("keydown", event => {
+        if (event.key === "Enter") {
+            /*
+                When user presses enter, find the matching business.
+                You can use the `.includes()` method strings to
+                see if a smaller string is part of a larger string.
+
+                Example:
+                    business.companyName.includes(keyPressEvent.target.value)
+            */
+
+            const foundBusiness = useBusinesses().find((business)  => 
+            business.companyName.startsWith(event.target.value)) // implement .find() method here
+
+            companySearchResultArticle.innerHTML = `
+                <h2>
+                ${foundBusiness.companyName}
+                </h2>
+                <section>
+                ${foundBusiness.addressFullStreet}
+
+                </section>
+                <section>
+                ${foundBusiness.addressCity},
+                ${foundBusiness.addressStateCode}
+                ${foundBusiness.addressZipCode}
+                </section><hr>
+            `;
+        }
+    });
+}
