@@ -1,10 +1,11 @@
-import { useBusinesses, nyBusinesses } from "./BusinessData.js"
-import { business } from "./Business.js"
+import { useBusinesses } from "./BusinessData.js"
+import { business, agentsHTML } from "./Business.js"
 
 
 const contentElement = document.querySelector(".businessList")
 const nyContentElement = document.querySelector(".businessList--newYork")
 const manuContentElement = document.querySelector(".businessList--manufacturing")
+const agentContentElement = document.querySelector(".agents")
 
 export const businessList = () => {
     const businessArray = useBusinesses();
@@ -47,5 +48,18 @@ export const manufacturingBusinessList = () => {
               manuContentElement.innerHTML += business(businessObj)
           }
       );
+
+}
+
+export const agentsList = () => {
+    const agentsArray = useBusinesses().map(businessObj => {
+        return businessObj.purchasingAgent;
+    })
+    agentContentElement.innerHTML = "";
+    agentsArray.forEach(
+        (businessObj) => {
+            agentContentElement.innerHTML += agentsHTML(businessObj)
+        }
+    );
 
 }

@@ -122,9 +122,6 @@ const businesses = [
     return false
   })
 
-  // export const nyBusinesses = businesses.filter(businessObj => {
-  //   if (businessObj.addressStateCode === "NY") {
-  //     return true
-  //   }
-  //   return false
+  // export const agents = businesses.map(businessObj => {
+  //   return businessObj.purchasingAgent;
   // })
